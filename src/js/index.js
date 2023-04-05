@@ -18,8 +18,4 @@ const onPressBtn = e => {
 refs.formEl.addEventListener('input', onWhatToSearch);
 refs.formEl.addEventListener('submit', onPressBtn);
 
-console.log(refs.inputEl);
-
 const data = fetchPixabayApi('car');
-
-console.log(data);

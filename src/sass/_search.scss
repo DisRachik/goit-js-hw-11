@@ -1,0 +1,24 @@
+.form {
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+
+  background: #6190e8;
+  background: linear-gradient(
+    to right,
+    rgba(167, 191, 232, 0.7),
+    rgba(97, 144, 232, 0.7)
+  );
+
+  backdrop-filter: blur(1px);
+}
+.form__input {
+  height: 100%;
+}

@@ -1,21 +1,17 @@
 import { Notify } from 'notiflix';
-import fetchPixabayApi from './fetch_query';
+import fetchPixabayApi from './fetchQuery';
+import renderToGallery from './markupGallery';
 
-refs = {
-  formEl: document.querySelector('.form'),
-  gallery: document.querySelector('.gallery'),
-  inputEl: document.querySelector('.form [name="searchQuery"]'),
-};
+import { formEl, gallery, inputEl } from './refs';
 
-const onWhatToSearch = e => {
-  console.log(e.target.value);
-};
-
-const onPressBtn = e => {
+const onSubmit = e => {
   e.preventDefault();
+
+  const inputValue = e.target.elements.searchQuery.value.trim().toLowerCase();
+
+  fetchPixabayApi(inputValue).then(res => renderToGallery(res.hits));
+
+  e.target.reset();
 };
 
-refs.formEl.addEventListener('input', onWhatToSearch);
-refs.formEl.addEventListener('submit', onPressBtn);
-
-const data = fetchPixabayApi('car');
+formEl.addEventListener('submit', onSubmit);

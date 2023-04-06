@@ -1,0 +1,18 @@
+body {
+  background: #8e9eab;
+  background: linear-gradient(to right, #eef2f3, #bcc0c4);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+input,
+button {
+  font-family: inherit;
+  outline: unset;
+}
+button {
+  border: transparent;
+  cursor: pointer;
+}

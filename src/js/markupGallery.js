@@ -1,4 +1,11 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 import { gallery } from './refs';
+
+const lightbox = new SimpleLightbox('.gallery .photo-card', {
+  sourceAttr: 'data-largeImage',
+});
 
 export default function renderToGallery(dataImages) {
   const markup = dataImages
@@ -13,7 +20,7 @@ export default function renderToGallery(dataImages) {
         comments,
         downloads,
       }) =>
-        `<div class="photo-card">
+        `<div class="photo-card" data-largeImage="${largeImageURL}">
       <img src="${webformatURL}" alt="${tags}" width="300" height="200" loading="lazy" />
         <div class="info">
         <p class="info-item">
@@ -46,14 +53,12 @@ export default function renderToGallery(dataImages) {
     .join('');
 
   gallery.insertAdjacentHTML('beforeend', markup);
+  lightbox.refresh();
 }
-
-// console.log(renderToGallery());
 
 function pathToIcon(icon) {
   const path = new URL('../images/symbol-defs.svg', import.meta.url);
 
-  // path.search = '';
   path.hash = `#${icon}`;
   return path.toString();
 }

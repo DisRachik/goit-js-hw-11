@@ -15,7 +15,6 @@ export default async function fetchPixabayApi(
   page = queryStringParameters.page
 ) {
   const response = await axios.get(collectUrl(userQuery, page));
-  console.log(response.data);
   return response.data;
 }
 

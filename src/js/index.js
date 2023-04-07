@@ -17,6 +17,9 @@ const onSubmit = e => {
   inputValue = e.target.elements.searchQuery.value.trim().toLowerCase();
   if (!inputValue) {
     Notify.failure('Enter a photo of what you want to find', optionsNotiflix);
+    if (!gallery.children.length) {
+      hideShowMoreBtn();
+    }
     return;
   }
 

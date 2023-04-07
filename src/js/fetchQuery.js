@@ -7,19 +7,21 @@ const queryStringParameters = {
   orientation: 'horizontal',
   safesearch: true,
   per_page: 40,
+  page: 1,
 };
 
-export default async function fetchPixabayApi(userQuery) {
-  const url = collectUrl(userQuery);
-
-  const response = await axios.get(collectUrl(userQuery));
+export default async function fetchPixabayApi(
+  userQuery,
+  page = queryStringParameters.page
+) {
+  const response = await axios.get(collectUrl(userQuery, page));
   console.log(response.data);
   return response.data;
 }
 
-function collectUrl(query) {
+function collectUrl(query, page = queryStringParameters.page) {
   const url = new URL(BASE_URL);
-  const param = { ...queryStringParameters, q: query };
+  const param = { ...queryStringParameters, q: query, page };
   Object.entries(param).forEach(([key, value]) =>
     url.searchParams.append(key, value)
   );

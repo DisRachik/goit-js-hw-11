@@ -1,4 +1,5 @@
 body {
+  text-align: center;
   background: #8e9eab;
   background: linear-gradient(to right, #eef2f3, #bcc0c4);
 }
@@ -15,4 +16,5 @@ button {
 button {
   border: transparent;
   cursor: pointer;
+  background-color: inherit;
 }

@@ -1,9 +1,13 @@
 const optionsNotiflix = {
   clickToClose: true,
-  position: 'center-top',
   cssAnimationStyle: 'from-top',
   fontSize: '17px',
   warning: { textColor: '#09098f' },
 };
+const optionsNotiflixFinish = {
+  timeout: 7000,
+  clickToClose: true,
+  position: 'center-bottom',
+};
 
-export { optionsNotiflix };
+export { optionsNotiflix, optionsNotiflixFinish };

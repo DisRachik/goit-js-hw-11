@@ -25,6 +25,7 @@ const onSubmit = e => {
 
   fetchPixabayApi(inputValue)
     .then(({ totalHits, hits }) => {
+      hideShowMoreBtn();
       gallery.innerHTML = '';
       window.scrollTo({ top: 0 });
 
